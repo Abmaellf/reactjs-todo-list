@@ -1,5 +1,6 @@
 import { Header } from "./component/Header";
 import styles from './App.module.css';
+import { Input } from "./component/Input";
 
 export function App() {
 
@@ -10,7 +11,7 @@ export function App() {
       <section className={styles.content}>
         <div className={styles.taskInfoContainer}>
 
-            <input />
+            <Input />
 
             <button>
               Criar

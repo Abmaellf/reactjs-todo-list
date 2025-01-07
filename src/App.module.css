@@ -1,12 +1,21 @@
 
-.contant {
+.content {
+    max-width:46rem;
+    width:100%;
 
+    margin: 0 auto;
 }
 
 .taskInfoContainer{
+    display: flex;
+    flex:1;
+
+    justify-content: space-between;
+    gap: 0.5rem;
 
 }
 
-.tasksList {
-    
+.taskInfoContainer input, .taskInfoContainer button { 
+    transform: translateY(-50%);
+    margin-bottom: 3.3125rem;
 }

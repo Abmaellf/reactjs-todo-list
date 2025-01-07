@@ -1,6 +1,7 @@
 import { Header } from "./component/Header";
 import styles from './App.module.css';
 import { Input } from "./component/Input";
+import { Button } from "./component/Button";
 
 export function App() {
 
@@ -13,9 +14,7 @@ export function App() {
 
             <Input />
 
-            <button>
-              Criar
-            </button>
+            <Button />
 
         </div>
 

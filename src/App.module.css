@@ -17,5 +17,17 @@
 
 .taskInfoContainer input, .taskInfoContainer button { 
     transform: translateY(-50%);
-    margin-bottom: 3.3125rem;
+    margin-bottom: 2.3125rem;
 }
+
+.tasksList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .tasksList > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }

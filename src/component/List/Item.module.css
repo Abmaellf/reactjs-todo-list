@@ -1,7 +1,7 @@
 
 .container {
     display: flex;
-    flex:1;    /* VAI ESTIVAR O MAXIMO POSSÍVEL */
+    flex:1;    /* VAI ESTICAR O MAXIMO POSSÍVEL */
     gap: 0.75rem;
     align-items: center;
     justify-content: space-between;

@@ -1,11 +1,14 @@
-import { Header } from "./component/Header";
-import styles from './App.module.css';
-import { Input } from "./component/Input";
-import { Button } from "./component/Button";
+import { PlusCircle } from "phosphor-react";
 import { useState } from "react";
+
+import styles from './App.module.css';
+
+import { Button } from "./component/Button";
+import { Header } from "./component/Header";
+import { Input } from "./component/Input";
+import { Empty } from "./component/List/Empty";
 import { Header as ListHeader } from "./component/List/Header";
 import { Item } from "./component/List/Item";
-import { PlusCircle } from "phosphor-react";
 
 export interface ITask {
   id: number;
@@ -13,25 +16,20 @@ export interface ITask {
   isChecked: boolean
 }
 
-
 export function App() {
+  
+  const [tasks, setTasks] = useState<ITask[]>([]) // ESTADO=VARIÁVEIS QUE EU QUERO QUE O COMPONENT MONITORE
+  const [inputValue, setInputValue] = useState('');// PROGRAMAÇÃO DECLARATIVA
 
-  const [tasks, setTasks] = useState<ITask[]>([])
-  // ESTADO=VARIÁVEIS QUE EU QUERO QUE O COMPONENT MONITORE
-
-  const [inputValue, setInputValue] = useState('');
-  // PROGRAMAÇÃO DECLARATIVA
-
-  const checkedTasksCounter = tasks.reduce((preValue, currentTask)=>{
+  const checkedTasksCounter = tasks.reduce((preValue, currentTask)=>{ // CONTA AS TASK(TAREFAS) QUE ESTÃO CHECKED (MARCADAS, FINALIZADAS)
     if(currentTask.isChecked === true) {
       return preValue + 1
     }
     return preValue;
   }, 0)
 
-
   // FUNÇÕES
-
+  // ADICIONA UMA NOVA TASK(TAREFA)
   function handleAddTask() {
     if (!inputValue) {
       return
@@ -41,7 +39,7 @@ export function App() {
       id: new Date().getTime(),
       text: inputValue,
       isChecked: false,
-    }
+  }
 
     setTasks((state) => [...state, newTask])
     setInputValue('')
@@ -95,8 +93,8 @@ export function App() {
         <div className={styles.tasksList}>
 
           <ListHeader
-            tasksCounter = {tasks.length}
-            checkedTasksCounter={checkedTasksCounter}
+            tasksCounter = {tasks.length} //CONTA QUANTAS TAREFAS TEM
+            checkedTasksCounter={checkedTasksCounter} // VERIFICA QUA
           />
 
           {tasks.length > 0 ? (
@@ -113,10 +111,8 @@ export function App() {
             </div>
 
             ):(
-              <h1> Vazio</h1>
+              <Empty />
           )}
-          
-        
           
         </div>
       </section>
